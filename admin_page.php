@@ -101,7 +101,7 @@ if (!isset($admin_id)) {
             <!-- main -->
              <main class="seccion main-contenedor">
                <!-- DASHBOARD -->
-                <div class="item">
+                <div class="item active">
                     <?php  include 'item1.php'; ?>
                 </div>
 
@@ -126,7 +126,7 @@ if (!isset($admin_id)) {
                 </div>
 
                <!-- FORMULARIOS -->
-                <div class="item active">
+                <div class="item">
                     <?php  include 'item6.php'; ?>
                 </div>
              </main>
