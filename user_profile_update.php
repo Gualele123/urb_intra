@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
    $email = $_POST['email'];
    $email = filter_var($email, FILTER_SANITIZE_STRING);
 
-   $update_profile = $conn->prepare("UPDATE `users` SET name = ?, email = ? WHERE id = ?");
+   $update_profile = $pdo->prepare("UPDATE `users` SET name = ?, email = ? WHERE id = ?");
    $update_profile->execute([$name, $email, $user_id]);
 
    //manejo de la imagen
@@ -31,7 +31,7 @@ if (isset($_POST['update'])) {
       if ($image_size > 2000000) {
          $message[] = 'la imagen es muy grande';
       }else {
-         $update_image = $conn->prepare("UPDATE `users` SET image = ? WHERE id = ?");
+         $update_image = $pdo->prepare("UPDATE `users` SET image = ? WHERE id = ?");
          $update_image->execute([$image, $user_id]);
 
          if ($update_image) {
@@ -56,7 +56,7 @@ if (isset($_POST['update'])) {
       }elseif($new_pass != $confirm_pass) {
          $message[] = 'la confirmacion de contraseña no coincide';
       }else {
-         $update_password = $conn->prepare("UPDATE `users` SET password = ? WHERE id = ?");
+         $update_password = $pdo->prepare("UPDATE `users` SET password = ? WHERE id = ?");
          $update_password->execute([$confirm_pass, $user_id]);
          $message[] = 'la contraseña fue actualizada!';
       }
@@ -97,7 +97,7 @@ if (isset($_POST['update'])) {
    <section class="update-profile-container">
       
       <?php
-         $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ? ");
+         $select_profile = $pdo->prepare("SELECT * FROM `users` WHERE id = ? ");
          $select_profile->execute([$user_id]);
          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
       ?>

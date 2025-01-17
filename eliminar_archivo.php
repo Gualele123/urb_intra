@@ -2,7 +2,7 @@
 if(isset($_POST['delete'])){
     $id = $_POST['id'];
     $sql = "DELETE FROM archivo WHERE id=:id";
-    $stmt = $conn->prepare($sql);
+    $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $id);
 
     if($stmt->execute()){

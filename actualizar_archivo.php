@@ -7,7 +7,7 @@ if(isset($_POST['update'])){
     
     if(move_uploaded_file($_FILES['archivo']['tmp_name'], $ruta_archivo)){
         $sql = "UPDATE archivo SET area_id=:area_id, nombre_archivo=:nombre_archivo, ruta_archivo=:ruta_archivo WHERE id=:id";
-        $stmt = $conn->prepare($sql);
+        $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':area_id', $area_id);
         $stmt->bindParam(':nombre_archivo', $nombre_archivo);

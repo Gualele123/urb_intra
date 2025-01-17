@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
    //consulta
-   $select = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
+   $select = $pdo->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
    $select->execute([$email, $pass]);
    $row = $select->fetch(PDO::FETCH_ASSOC);
 
