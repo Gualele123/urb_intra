@@ -6,14 +6,14 @@ session_start();
 if (isset($_POST['submit'])) {
    //capturando datos desde el formulario
    
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $name = $_POST['name'];
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
    $pass = md5($_POST['pass']);
    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
    //consulta
-   $select = $pdo->prepare("SELECT * FROM `users` WHERE email = ? AND password = ?");
-   $select->execute([$email, $pass]);
+   $select = $pdo->prepare("SELECT * FROM `users` WHERE name = ? AND password = ?");
+   $select->execute([$name, $pass]);
    $row = $select->fetch(PDO::FETCH_ASSOC);
 
    if($select->rowCount() > 0) {
@@ -67,11 +67,14 @@ if (isset($_POST['submit'])) {
 
    <section class="form-container">
       <form action="" method="post" enctype="multipart/form-data">
+         <div class="logo-contenedor">
+            <img src="./img/logo.png" alt="">
+         </div>
          <h3>Iniciar Sesion</h3>
          
-         <input type="email" required placeholder="ingrese email" class="box" name="email">
+         <input type="text" required placeholder="ingrese usuario" class="box" name="name">
          <input type="password" required placeholder="ingrese contraseña" class="box" name="pass">
-         <!-- <p>No tienes una cuenta? <a href="register.php">Regitrarse</a></p> -->
+         <p>No tienes una cuenta? <a href="register.php">Registrarse</a></p>
          <input type="submit" value="Ingresar" class="btn" name="submit">
       </form>
 

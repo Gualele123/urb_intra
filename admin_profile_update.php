@@ -37,7 +37,7 @@ if(isset($_POST['update'])){
          if($update_image){
             move_uploaded_file($image_tmp_name, $image_folder);
             unlink('uploaded_img/'.$old_image);
-            $message[] = 'image has been updated!';
+            $message[] = 'la imagen fué actualizada!';
          }
       }
 

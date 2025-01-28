@@ -1,5 +1,4 @@
-
-    <div class="comunicados-contenedor">
+<div class="comunicados-contenedor">
     <h4>Comunicados</h4>
       <div class="cards">
         <div class="card" >

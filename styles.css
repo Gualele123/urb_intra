@@ -111,22 +111,58 @@
 
 
 
-/* header */
+/*------header------------------------------------------*/
 .header-contenedor {
     grid-column: 1/-1;
 }
 
+.header-contenedor .nav {
+    /* border: 1px solid red; */
+    margin-right: 14.5vh;
+}
+
+.nav li .titulo {
+    color: white;
+}
+
 .nav li .img-contenedor {
-    width: 30px;
-    height: auto;
+    width: 65px;
+    height: 40px;
+    max-width: 65px;
+    max-height: 40px;
+    /* max-height: 30px; */
+    /* border: 2px solid red; */
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .nav li .img-contenedor img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 50%;
     /* border: 1px solid rgb(58, 58, 58); */
+}
+
+.nav li .img-contenedor .circulo-live {
+    position: absolute;
+    bottom: 0;
+    color: rgb(34, 226, 101);
+    right: 0;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li .img-contenedor .circulo-live .punto {
+    border: 2px solid white;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    height: auto;
+    right: 0;
+    
 }
 
 .nav li a {
@@ -144,11 +180,12 @@
 
 
 .main-contenedor {
-    border: 3px solid rgb(245, 242, 49);
+    /* border: 3px solid rgb(245, 242, 49); */
     /* padding: 10px;    */
     margin: 0;
     padding: 0;
     position: relative;
+    
 }
 
 .main-contenedor .item {
@@ -166,7 +203,7 @@
     display: block;
 }
 
-/* item1 */
+/*---item1:dashboard------------------------------------------------------------------------------------ */
 .dashboard-contenido {
     background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75)), url(./img/fondoclinica.png);
     background-size: cover;
@@ -190,315 +227,9 @@
     padding-left: 10vh;
 }
 
-/*-----cumpleañeros--------------------------------------------------------------------- */
-
-.cumpleañeros-contenido {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    /* border: 2px solid red; */
-    margin: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    background-color: #d8e1f3;
-    /* background-color: #abb8c3; */
-    justify-content: center;
-}
-
-.cumpleañeros-contenido .cumpleañerodia {
-    grid-column: 1/-1;
-    /* border: 2px solid rgb(88, 198, 241); */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    width: 100%;
-    height: 300px;
-    position: absolute;
-    margin: 30px auto;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #d8e1f3;
-    padding-top: 0;
-    /* border: none; */
-
-}
-
-.cumpleañeros-contenido .cumpleañerodia .img-contenedor {
-    /* border: 2px solid rgb(241, 111, 88); */
-    display: flex;
-    width: 460px;
-    height: 296px;
-    /* position: absolute; */
-    /* margin: 30px auto; */
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: transparent;
-
-}
-
-.cumpleañeros-contenido .cumpleañerodia img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    border: 7px solid white;
-    border-radius: 10px;
-    margin: 0 auto;
-
-}
-
-.cumpleañeros-contenido .cumpleañerodia .tarjeta {
-    width: 570px;
-    height: 45%;
-    position: relative;
-    padding: 15px;
-    margin-top: 0;
-
-}
-
-.cumpleañeros-contenido .cumpleañerodia .tarjeta .contenido {
-    position: absolute;
-    top: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
+/*--item 2:cumpleañeros--------------------------------------------------------------------- */
 
 
-}
-
-.cumpleañerodia .tarjeta .contenido h1 {
-    font-size: 25px;
-}
-
-/*-------------Carousel */
-.carousel-contenedor {
-    /* border: 2px solid green; */
-    margin: 0px;
-    position: absolute;
-    width: 100%;
-    height: 35vh;
-    /* position: absolute; */
-    bottom: 0px;
-    /* overflow: visible; */
-}
-
-.Carousel {
-    width: 100%;
-    height: 30vh;
-    /* margin: 0px 60px; */
-    /* border: 2px solid rgb(238, 234, 29); */
-    padding-top: 0;
-}
-
-.Carousel h2 {
-    font-size: 16px;
-    line-height: 18px;
-    padding-bottom: 4px;
-    opacity: .9;
-    text-transform: uppercase;
-    letter-spacing: 7px;
-    text-align: left;
-    /* border: 1px solid red; */
-    padding-left: 13.1vh;
-}
-
-/* imagenes carousel */
-.slick-list {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 210px;
-    /* position: relative;
-    bottom: 0; */
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    padding: 25px 0px;
-    margin: 0px auto;
-    max-width: 79.5vw;
-    overflow: hidden;
-    /* border: 1px solid rgb(54, 215, 243); */
-    /* padding: 8px; */
-    
-}
-
-.slick-track {
-    position: relative;
-    /* top: -100px; */
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .5s ease-in-out;
-    /* border: 1px solid blue; */
-    height: 130px;
-    padding: 2px;
-    gap: 5px;
-}
-
-/* tarjeta */
-.slick {
-    position: relative;
-    width: 150px;
-    /* padding: 0 18px; */
-    /* float: left; */
-    box-sizing: border-box;
-    display: flex;
-    /* height: 80%; */
-    border: 1px solid rgb(94, 94, 94);
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 10rem;
-    transition: 1s;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 0;
-    margin: 0;
-}
-
-
-
-.slick h4 {
-    position: absolute;
-    z-index: 1;
-    font-size: 22px;
-    line-height: 23px;
-    color: #fff;
-    padding: 15px;
-}
-
-.slick h4 small {
-    font-size: 15px;
-    display: block;
-}
-
-/* .slick div {
-    background-color: rgb(212, 212, 212);
-    width: 100%;
-    height: 100%;
-    /* box-shadow: 5px 5px 5px #d4d4d4;
-}
-
-.slick div:hover {
-    opacity: .50;
-} */
-
-
-.slick a img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px 0 (0,0,0,.5);
-    transition: .3 ease-in-out;
-}
-
-/* .slick a img:hover {
-    opacity: .85;
-
-} */
-
-/* button */
-.slick-arrow {
-    border-radius: 30px;
-    background-color: #fff;
-    position: absolute;
-    z-index: 4;
-    width: 48px;
-    height: 48px;
-    text-align: center;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .15);
-    border: 0;
-    cursor: pointer;
-}
-
-.slick-arrow:focus {
-    outline: 0;
-}
-
-.slick-arrow svg {
-    width: 12px;
-    height: 100%;
-    color: rgba(0, 0, 0, .7);
-}
-
-.slick-prev{
-    left: 0px;
-}
-
-.slick-next{
-    right: 0px;
-}
-
-.slick .card-body .card-title {
-    font-size: 15px;
-    margin: 0;
-    margin-bottom: 0
-}
-
-.slick .card-body p {
-    font-size: 10px;
-    margin: 0;
-    padding: 0;
-}
-
-.slick .card-body .card-text {
-    text-align: center;
-}
-
-
-.slick .img-contenedor {
-    width: 70px;
-    height: 70px;
-    /* border: 2px solid rgb(165, 24, 24); */
-    margin: 0 auto;
-    /* padding: 5px; */
-    margin-top: 0;
-    margin-bottom: 0;
-    background-color: #ffffff;
-    position: relative;
-    top: 4px;
-    
-}
-
-.slick .card-body {
-    gap: 0;
-    /* border: 3px solid rgb(18, 122, 122); */
-    padding: 5px;
-    margin: 0;
-    text-align: center;
-    background-color: transparent;
-    position: absolute;
-    bottom: 0px;
-}
-
-.slick .card-body strong {
-    background-color: #a9e9ff;
-    /* border: 2px solid #33acff; */
-    border-radius: 7px;
-    font-size: 12px;
-    width: 60px;
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-
-.slick .img-contenedor img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.slick:hover {
-    transform: scale(1.3);
-    z-index: 3;
-    cursor: pointer;
-}
 
 /*-----comunicados-----------------------------------------------------------------------------*/
 .comunicados-contenedor {
@@ -755,6 +486,100 @@
     border-radius: 50%;
 }
 
+.form-insertar {
+    display: block;
+}
+
+
+/*----carousel---------------------*/
+.container.cumpleaneros {
+    /* border: 1px solid red; */
+    background: url("image/bg.jpg") #030728 no-repeat center;
+}
+
+.slider-wrapper {
+    /* border: 1px solid rgb(30, 54, 177); */
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 70px 55px;
+}
+
+.card-list .card-item {
+    color: #fff;
+    /* width: 400px; */
+    user-select: none;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    backdrop-filter: blur(30px);
+   background: rgba(255, 255, 255, 0.2);
+    /* background: rgba(255, 255, 255, 0.651); */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-list .card-item .user-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 40px;
+    /* border: 3px solid #fff; */
+    padding: 4px;
+}
+
+.card-list .card-item .user-profession {
+    font-size: 1.15rem;
+    color: #e3e3e3;
+    font-weight: 500;
+    margin: 14px 0 40px;
+}
+
+.card-list .card-item .message-button {
+    font-size: 1.25rem;
+    padding: 10px 35px;
+    color: #030728;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid transparent;
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .message-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.slider-wrapper .swiper-pagination-bullet {
+    background: #fff;
+    height: 15px;
+    width: 15px;
+}
+
+.slider-wrapper .swiper-slide-button {
+    color: #fff;
+    margin-top: -50px;
+    transition: 0.2s ease;
+}
+
+.slider-wrapper .swiper-slide-button:hover {
+    color: #4658ff;
+}
+
+@media (max-width: 768px) {
+    .slider-wrapper {
+        margin: 0 10px 40px;
+    }
+
+    .slider-wrapper .swiper-slide-button {
+        display: none;
+    }
+
+}
 
 
 

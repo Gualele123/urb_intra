@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo'])) {
     if (move_uploaded_file($ruta_temporal, $ruta_destino)) {
         // Insertar en la base de datos
         $area_id = $_POST['area_id'];
-        $sql = "INSERT INTO archivo (nombre_archivo, ruta, area_id) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO archivo (nombre_archivo, ruta_archivo, area_id) VALUES (?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$nombre_archivo, $ruta_destino, $area_id]);
 
@@ -26,24 +26,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo'])) {
 }
 ?>
 
-<form method="post" enctype="multipart/form-data">
-    <label for="area_id">Área:</label>
-    <select name="area_id" required>
-        <?php foreach ($areas as $area): ?>
-            <option value="<?= $area['id']; ?>"><?= $area['nombre']; ?></option>
-        <?php endforeach; ?>
-    </select>
-    
-    <label for="archivo">Archivo:</label>
-    <input type="file" name="archivo" required>
+<div class="row">
+          <div class="col">
+          </div>
+          <div class="col-5">
+            <h3>Insertar nuevo</h3>
+            <form class="form-insertar" method="post" enctype="multipart/form-data">
+                <label for="area_id">Área:</label>
+                <select class="form-control" name="area_id" required>
+                    <?php foreach ($areas as $area): ?>
+                        <option value="<?= $area['id']; ?>"><?= $area['nombre']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                    
+                <label for="archivo">Archivo:</label>
+                <input class="form-control" type="file" name="archivo" required>
+                    
+                <button class="btn btn-success" type="submit">Subir archivo</button>
+            </form>
+          </div>
+          <div class="col">
+          </div>
+</div>
 
-    <button class="btn btn-success" type="submit">Subir archivo</button>
-</form>
-
-
+<div class="row">
+          <div class="col-2">
+          </div>
+<div class="col-8">
 <?php
 // Obtener los archivos de la base de datos
-$sql = "SELECT a.id, a.nombre_archivo, a.ruta, ar.nombre AS area_nombre 
+$sql = "SELECT a.id, a.nombre_archivo, a.ruta_archivo, ar.nombre AS area_nombre 
         FROM archivo a
         JOIN area ar ON a.area_id = ar.id";
 $stmt = $pdo->query($sql);
@@ -79,7 +91,7 @@ function obtenerIcono($extension) {
 
 ?>
 
-<table class="table table-sm table-striped">
+<table id="myTable2" class="table table-sm table-striped">
     <thead>
         <tr>
             <th>Nombre del archivo</th>
@@ -93,7 +105,7 @@ function obtenerIcono($extension) {
             <tr>
                 <td><?= htmlspecialchars($archivo['nombre_archivo']); ?></td>
                 <td><?= htmlspecialchars($archivo['area_nombre']); ?></td>
-                <td><a href="<?= $archivo['ruta']; ?>" download><i class="fas fa-download"></i>Descargar</a></td>
+                <td><a href="<?= $archivo['ruta_archivo']; ?>" download><i class="fas fa-download"></i>Descargar</a></td>
                 <td>
                     <?php
                     // Obtener la extensión del archivo
@@ -106,3 +118,7 @@ function obtenerIcono($extension) {
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>
+          <div class="col-2">
+          </div>
+</div>

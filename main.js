@@ -14,27 +14,39 @@ tabs.forEach((tab, index)=>{
 
 // --------------------------------------------
 
-// CARROUSEL
-const buttonPrev = document.getElementById('button-prev');
-const buttonNext = document.getElementById('button-next');
-const track = document.getElementById('track');
-const slickList = document.getElementById('slick-list');
-const slick = document.querySelectorAll('.slick');
 
-const slickWidth = slick[0].offsetWidth;
 
-buttonPrev.onclick = () => Move(1);
-buttonNext.onclick = () => Move(2);
 
-function Move(value) {
-    const trackWidth = track.offsetWidth;
-    const listWidth = slickList.offsetWidth;
 
-    track.style.left == "" ? leftPosition = track.style.left = 0 : leftPosition = parseFloat(track.style.left.slice(0, -2) * -1);
+//--CAROUSEL----------------------------------------------------------------------
+const swiper = new Swiper('.slider-wrapper', {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 30,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
 
-    if (leftPosition < (trackWidth - listWidth) && value == 2) {
-        track.style.left = `${-1 * (leftPosition + slickWidth)}px`;
-    } else if (leftPosition > 0 && value == 1) {
-        track.style.left = `${-1 * (leftPosition - slickWidth)}px`;
+    //responsive braeakpoints,dependiendo del tamaño muestra la cantidad de tarjetas
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        },
+        1024: {
+            slidesPerView: 4
+        }
     }
-}
+  });
