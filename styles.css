@@ -495,10 +495,18 @@
 .container.cumpleaneros {
     /* border: 1px solid red; */
     background: url("image/bg.jpg") #030728 no-repeat center;
+    border: 1px solid red;
+    /* height: auto;*/
+    /* margin: 12vh auto; */
+    position: relative;
+    align-items: flex-end;
+    
+    
+
 }
 
 .slider-wrapper {
-    /* border: 1px solid rgb(30, 54, 177); */
+    border: 1px solid rgb(85, 253, 79);
     overflow: hidden;
     max-width: 1200px;
     margin: 0 70px 55px;
@@ -508,36 +516,45 @@
     color: #fff;
     /* width: 400px; */
     user-select: none;
-    padding: 35px;
+    /* padding: 35px; */
+    padding: 20px;
+    height: 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     backdrop-filter: blur(30px);
-   background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     /* background: rgba(255, 255, 255, 0.651); */
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .card-list .card-item .user-image {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-bottom: 40px;
+    margin-bottom: 5px;
     /* border: 3px solid #fff; */
     padding: 4px;
 }
 
+.card-list .card-item .user-name {
+    font-size: 1.3rem;
+    text-align: center;
+    
+}
+
 .card-list .card-item .user-profession {
     font-size: 1.15rem;
-    color: #e3e3e3;
+    /* color: #e3e3e3; */
+    color: #2bf3fa;
     font-weight: 500;
-    margin: 14px 0 40px;
+    /* margin: 5px 0 40px; */
 }
 
 .card-list .card-item .message-button {
-    font-size: 1.25rem;
+    font-size: 0.9em;
     padding: 10px 35px;
     color: #030728;
     border-radius: 6px;
@@ -546,6 +563,7 @@
     background: #fff;
     border: 1px solid transparent;
     transition: 0.2s ease;
+    margin: 0;
 }
 
 .card-list .card-item .message-button:hover {

@@ -2,73 +2,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 
+
 <div class="container cumpleaneros swiper"> <!--añadido swiper-->
         <div class="slider-wrapper">
             <div class="card-list swiper-wrapper"> <!--añadido swiper-wrapper-->
+            <?php 
+                  $conexion = mysqli_connect('localhost','root','','user_form4');
+
+                  $sql = "SELECT id, nombre, fechaNacimiento, appaterno, apmaterno FROM empleado WHERE fechaNacimiento BETWEEN '1900-01-01' AND '2025-01-31'";
+                  $result = mysqli_query($conexion,$sql);
+
+                  
+                  while ($mostrar=mysqli_fetch_array($result)) {
+            ?>
                 <!-- tarjeta 1 -->
                 <div class="card-item swiper-slide"> <!--añadido swiper-slide-->
                     <img src="image/img-1.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Alexander Aguirre</h2>
+                    <h2 class="user-name"><?php echo $mostrar['nombre'] . ' ' . $mostrar['appaterno'] . ' ' . $mostrar['apmaterno']  ?></h2>
                     <p class="user-profession">Sistema</p>
-                    <button class="message-button">01 de Enero</button>
+                    <!-- <p class="user-profession">Semana</p> -->
+                    <button class="message-button"><?php echo $mostrar['fechaNacimiento']  ?></button>
                 </div>
-
-                <!-- tarjeta 2 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/img-2.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Wendy Paz</h2>
-                    <p class="user-profession">Sistema</p>
-                    <button class="message-button">10 de Enero</button>
-                </div>
-
-                <!-- tarjeta 3 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/img-3.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Juan Jose Flores</h2>
-                    <p class="user-profession">Contabilidad</p>
-                    <button class="message-button">13 de Enero</button>
-                </div>
-
-                <!-- tarjeta 4 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/img-4.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Mariel Torrez</h2>
-                    <p class="user-profession">RRHH</p>
-                    <button class="message-button">25 de Enero</button>
-                </div>
-
-                <!-- tarjeta 5 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/img-5.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Cristian Medrano</h2>
-                    <p class="user-profession">Sistema</p>
-                    <button class="message-button">01 de Febrero</button>
-                </div>
-
-                <!-- tarjeta 6 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/img-6.jpg" alt="user image" class="user-image">
-                    <h2 class="user-name">Wilson Ruiz</h2>
-                    <p class="user-profession">Sistema</p>
-                    <button class="message-button">05 de Febrero</button>
-                </div>
-
-                <!-- tarjeta 7 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/pic-1.png" alt="user image" class="user-image">
-                    <h2 class="user-name">Victor Ibarra</h2>
-                    <p class="user-profession">Sistema</p>
-                    <button class="message-button">09 de febrero</button>
-                </div>
-
-                <!-- tarjeta 8 -->
-                <div class="card-item swiper-slide">
-                    <img src="image/pic-6.png" alt="user image" class="user-image">
-                    <h2 class="user-name">Candy Gutierrez</h2>
-                    <p class="user-profession">Archivo</p>
-                    <button class="message-button">17 de febrero</button>
-                </div>
-
+            <?php } ?>
             </div>
 
             <!--paginacion -->
