@@ -2,10 +2,17 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Servidor: 127.0.0.1:3306
 -- Tiempo de generación: 28-01-2025 a las 23:18:55
 -- Versión del servidor: 11.3.2-MariaDB
 -- Versión de PHP: 8.3.6
+=======
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 03-02-2025 a las 12:19:26
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.1.17
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,6 +34,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `archivo`
 --
 
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `archivo`;
 CREATE TABLE IF NOT EXISTS `archivo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,6 +44,14 @@ CREATE TABLE IF NOT EXISTS `archivo` (
   PRIMARY KEY (`id`),
   KEY `area_id` (`area_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+CREATE TABLE `archivo` (
+  `id` int(11) NOT NULL,
+  `area_id` int(11) DEFAULT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `ruta_archivo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 --
 -- Volcado de datos para la tabla `archivo`
@@ -51,12 +67,19 @@ INSERT INTO `archivo` (`id`, `area_id`, `nombre_archivo`, `ruta_archivo`) VALUES
 -- Estructura de tabla para la tabla `area`
 --
 
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `area`;
 CREATE TABLE IF NOT EXISTS `area` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+CREATE TABLE `area` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 --
 -- Volcado de datos para la tabla `area`
@@ -77,6 +100,7 @@ INSERT INTO `area` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Estructura de tabla para la tabla `contactos`
 --
 
@@ -90,6 +114,45 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   PRIMARY KEY (`id`),
   KEY `id_area` (`id_area`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+-- Estructura de tabla para la tabla `comunicados`
+--
+
+CREATE TABLE `comunicados` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `descripcion` text NOT NULL,
+  `fecha` datetime NOT NULL,
+  `autor` varchar(255) NOT NULL,
+  `imagen` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comunicados`
+--
+
+INSERT INTO `comunicados` (`id`, `titulo`, `descripcion`, `fecha`, `autor`, `imagen`) VALUES
+(7, 'Servicios Clinica', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '2025-02-03 03:26:19', 'Ing.Yenny Paz', 'uploads/comunicado3.png'),
+(8, 'Reunion de Directorio', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '2025-02-03 03:27:35', 'Ing.Mauricio Reyes', 'uploads/default.jpg'),
+(9, 'Pago sueldos', 'The standard Lorem Ipsum passage, used since the 1500s\r\n\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '2025-02-03 03:38:28', 'Ing.Alexander Aguirre', 'uploads/comunicado1.jpg'),
+(10, 'Capacion de empleados', 'The standard Lorem Ipsum passage, used since the 1500s\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '2025-02-03 03:39:28', 'Ing.Victor Rojas', 'uploads/default.jpg'),
+(11, 'Horarios', 'The standard Lorem Ipsum passage, used since the 1500s\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '2025-02-02 03:41:21', 'Ing.Jhonatan Choque', 'uploads/comunicado2.png'),
+(12, 'Equipamiento Clinico', 'The standard Lorem Ipsum passage, used since the 1500s\r\n\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '2025-02-03 03:42:33', 'Ing.Yenny Paz', 'uploads/comunicado8.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contactos`
+--
+
+CREATE TABLE `contactos` (
+  `id` int(11) NOT NULL,
+  `foto` blob NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `contacto` varchar(255) NOT NULL,
+  `id_area` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 --
 -- Volcado de datos para la tabla `contactos`
@@ -110,6 +173,7 @@ INSERT INTO `contactos` (`id`, `foto`, `nombre`, `contacto`, `id_area`) VALUES
 -- Estructura de tabla para la tabla `empleado`
 --
 
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE IF NOT EXISTS `empleado` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -119,6 +183,15 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `apmaterno` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+CREATE TABLE `empleado` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `fechaNacimiento` date DEFAULT NULL,
+  `appaterno` varchar(255) DEFAULT NULL,
+  `apmaterno` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 --
 -- Volcado de datos para la tabla `empleado`
@@ -145,16 +218,26 @@ INSERT INTO `empleado` (`id`, `nombre`, `fechaNacimiento`, `appaterno`, `apmater
 -- Estructura de tabla para la tabla `users`
 --
 
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
+=======
+CREATE TABLE `users` (
+  `id` int(100) NOT NULL,
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `user_type` varchar(20) NOT NULL DEFAULT 'user',
+<<<<<<< HEAD
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 
 --
 -- Volcado de datos para la tabla `users`
@@ -167,6 +250,91 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `user_type`, `image`) VA
 (4, 'Juan Flores', 'juanjose@gmail.com', '202cb962ac59075b964b07152d234b70', 'user', 'user-1.jpg');
 
 --
+<<<<<<< HEAD
+=======
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `archivo`
+--
+ALTER TABLE `archivo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `area_id` (`area_id`);
+
+--
+-- Indices de la tabla `area`
+--
+ALTER TABLE `area`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `comunicados`
+--
+ALTER TABLE `comunicados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_area` (`id_area`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `archivo`
+--
+ALTER TABLE `archivo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `area`
+--
+ALTER TABLE `area`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `comunicados`
+--
+ALTER TABLE `comunicados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `contactos`
+--
+ALTER TABLE `contactos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+>>>>>>> 9e7601d (desarrollo de modulo comunicados)
 -- Restricciones para tablas volcadas
 --
 
