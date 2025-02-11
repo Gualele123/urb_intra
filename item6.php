@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo'])) {
     } else {
         echo "Error al subir el archivo.";
     }
+
+    header('Location: admin_page.php');
 }
 ?>
 
@@ -31,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo'])) {
           </div>
           <div class="col-5">
             <h3>Insertar nuevo</h3>
-            <form class="form-insertar" method="post" enctype="multipart/form-data">
+            <form action="item6.php" class="form-insertar" method="post" enctype="multipart/form-data">
                 <label for="area_id">Área:</label>
                 <select class="form-control" name="area_id" required>
                     <?php foreach ($areas as $area): ?>
@@ -97,7 +99,7 @@ function obtenerIcono($extension) {
             <th>Nombre del archivo</th>
             <th>Área</th>
             <th>Acción</th>
-            <th>Vista previa</th>
+            <th>Tipo de Archivo</th>
         </tr>
     </thead>
     <tbody>
@@ -105,7 +107,7 @@ function obtenerIcono($extension) {
             <tr>
                 <td><?= htmlspecialchars($archivo['nombre_archivo']); ?></td>
                 <td><?= htmlspecialchars($archivo['area_nombre']); ?></td>
-                <td><a href="<?= $archivo['ruta_archivo']; ?>" download><i class="fas fa-download"></i>Descargar</a></td>
+                <td><a class="btn btn-primary" href="<?= $archivo['ruta_archivo']; ?>" download><i class="fas fa-download"></i>Descargar</a></td>
                 <td>
                     <?php
                     // Obtener la extensión del archivo
